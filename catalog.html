@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalog</title>
+    <style>
+        .product {
+            width: 200px;
+            margin: 10px;
+            float: left;
+        }
+        .product img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        fetch('/api/erc')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            // здесь вы можете обработать полученные данные и вывести их на страницу
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      </script>
+</body>
+</html>
