@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наши работы</title>
+    <script src="https://unpkg.com/vanilla-lazyload@17.3.2/dist/lazyload.min.js"></script>
     <link rel="stylesheet" href="./jobsme.css">
 </head>
 <body>
     <header class="header">
-        <img class="logo" src="./logo.svg" alt="ю">
+        <a href="./index.html"><img class="logo" src="./logo.svg" alt="Logo"></a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
@@ -16,67 +17,56 @@
             <li><a href="./catalog.html">Каталог</a></li>
             <li><a href="./services.html">Установка и монтаж</a></li>
             <li><a href="#contact">Контакты</a></li>
-
+        </ul>
+        <div class="social-icons">
           <a class="icon" href="https://t.me/Texture_e" target="_blank" title="Telegram">
             <img src="telegram-icon.svg" alt="Telegram" class="social-icon">
-        </a>
-        <a class="icon" href="https://wa.me/YourWhatsAppNumber" target="_blank" title="WhatsApp">
+          </a>
+          <a class="icon" href="https://wa.me/YourWhatsAppNumber" target="_blank" title="WhatsApp">
             <img src="whatsapp-icon.svg" alt="WhatsApp" class="social-icon">
-        </a> 
-        <a  href="https://vk.com/YourVKProfile" target="_blank" title="VK">
+          </a>
+          <a href="https://vk.com/YourVKProfile" target="_blank" title="VK">
             <img src="vk-icon.svg" alt="VK" class="social-icon">
-        </a>
-        </ul>
+          </a>
+        </div>
     </header>
 
-    <main>
-        <figure class="work">
-            <img src="./job/1.jpeg" alt="Работа 1">
-            <figcaption>Описание работы 1</figcaption>
-        </figure>
-        <figure class="work">
-            <img src="/job/2.jpeg" alt="Работа 2">
-            <figcaption>Описание работы 2</figcaption>
-        </figure>
-        <figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure>
-        <figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure><figure class="work">
-            <img src="/job/3.jpeg" alt="Работа 3">
-            <figcaption>Описание работы 3</figcaption>
-        </figure>
-    </main>
+    <div class="portfolio-wrapper">
+      <div class="portfolio-container">
+        <!-- Filter buttons -->
+        <div class="filter-buttons">
+          <button class="filter-btn" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="category1">Category 1</button>
+          <button class="filter-btn" data-filter="category2">Category 2</button>
+        </div>
+
+        <!-- Portfolio items -->
+        <div class="portfolio-items">
+          <div class="portfolio-item" data-category="category1">
+            <img class="portfolio-image" data-src="catalog.jpg" alt="Work 1">
+            <div class="portfolio-description">
+              <h3 class="portfolio-title">Work Title</h3>
+              <p class="portfolio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="category1">
+            <img class="portfolio-image" data-src="catalog.jpg" alt="Work 1">
+            <div class="portfolio-description">
+              <h3 class="portfolio-title">Work Title</h3>
+              <p class="portfolio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <!-- Add more portfolio items -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for image preview -->
+    <div class="modal" id="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modal-img">
+    </div>
+
     <footer class="footer">
         <div class="container__footer">
             <div class="footer__contact">
@@ -96,5 +86,17 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Инициализация LazyLoad после загрузки страницы
+        window.addEventListener('DOMContentLoaded', function() {
+            const lazyLoadInstance = new LazyLoad({
+                elements_selector: '.portfolio-image'
+            });
+        });
+    </script>
+
+    <script src="catalog.js" type="module"></script>
+
 </body>
 </html>
